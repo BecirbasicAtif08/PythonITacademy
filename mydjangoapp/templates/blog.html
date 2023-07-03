@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    {% include 'head.html' %}
+<body>
+    {% include 'header.html' %}
+    <div class="yahoo_rss">
+        <div class="news-container">
+            {% for news_item in page_obj %}
+                <div class="news-item">
+                    {% if news_item.image_url %}
+                        <a href="{% url 'blog' news_item.id %}">
+                            <img src="{{ news_item.image_url }}" alt="News Image" loading="lazy">
+                        </a>
+                    {% endif %}
+                    <h3>
+                        <a href="{% url 'blog' news_item.id %}">{{ news_item.title }}</a>
+                    </h3>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="pagination">
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+        {% endif %}
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">Next</a>
+        {% endif %}
+    </div>
+    {% include 'footer.html' %}
+</body>
+</html>

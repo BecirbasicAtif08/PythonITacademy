@@ -1,0 +1,15 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    {% include 'head.html' %}
+<body>
+    {% include 'header.html' %}
+    <div class="blog-post">
+        {% if news_item.image_url %}
+            <img src="{{ news_item.image_url }}" alt="News Image" loading="lazy">
+        {% endif %}
+        <h3>{{ news_item.title }}</h3>
+    </div>
+    {% include 'footer.html' %}
+</body>
+</html>
