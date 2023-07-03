@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'mydjangoapp',
+    'ecommerce',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -78,7 +79,7 @@ WSGI_APPLICATION = 'mydjangoapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'sakila',
+        'NAME': 'ecomapp',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'localhost',

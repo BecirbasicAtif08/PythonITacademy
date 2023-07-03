@@ -484,3 +484,43 @@ p a:hover {
 	padding-top: 20px;
 	color:white;
 }
+
+.container {
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+.container h1,h2,p {
+	color: white;
+}
+
+.product-container {
+	display: grid;
+	grid-template-columns: repeat(3,1fr);
+}
+
+.product {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.container table {
+	width: 100%;
+	text-align: center;
+	color: white;
+}
+
+.container .pay_now {
+	text-align: center;
+    display: flex;
+    justify-content: center;
+    border: 1px solid blue;
+    background-color: yellow;
+    padding: 20px;
+    align-items: center;
+    margin-top: 20px;
+	border-radius: 20px;
+	text-decoration: unset;
+}

@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    {% include 'head.html' %}
+<body>
+    {% include 'header.html' %}
+    <h1>Order List</h1>
+
+    {% for order in orders %}
+    <div class="order">
+        <h2>{{ order }}</h2>
+        <!-- Display order details -->
+    </div>
+    {% endfor %}
+    {% include 'footer.html' %}
+</body>
+</html>

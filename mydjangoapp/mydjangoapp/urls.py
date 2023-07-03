@@ -18,6 +18,7 @@ from django.urls import path, re_path
 from django.http import HttpResponse
 import mydjangoapp.view.myview as myview
 from django.contrib.auth.views import LoginView
+from ecommerce import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -42,6 +43,10 @@ urlpatterns = [
     path('api/movies/', myview.get_movies, name='get_movies'),  
     path('news/', myview.news_view, name='news'),
     re_path(r'^blog/(?P<news_id>[a-zA-Z0-9-]+)/$', myview.blog_view, name='blog'),
-    path('movie/<int:movie_id>/', myview.movie_detail, name='movie_detail'),  # New URL pattern
+    path('movie/<int:movie_id>/', myview.movie_detail, name='movie_detail'),
+    path('', views.product_list, name='product_list'),
+    path('cart/', views.cart, name='cart'),
+    path('pay-now/', views.pay_now, name='pay_now'),
+    path('orders/', views.order_list, name='orders'),
 ]
 

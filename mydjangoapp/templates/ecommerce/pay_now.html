@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    {% include 'head.html' %}
+<body>
+    {% include 'header.html' %}
+        <div class="container">
+        <h1>Pay Now</h1>
+
+        {% if order %}
+        <h2>Order: {{ order }}</h2>
+
+        <h3>Order Details:</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for product in order.products.all %}
+                <tr>
+                <td>{{ product.title }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.price }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        {% with total_price=0 %}
+            {% for product in order.products.all %}
+            {% with product_price=product.price %}
+                {% with total_price=total_price|add:product_price %}
+                {% endwith %}
+            {% endwith %}
+            {% endfor %}
+            <p>Total Price: {{ total_price }}</p>
+        {% endwith %}
+
+        {% else %}
+        <p>No order found.</p>
+        {% endif %}
+        
+    
+    {% include 'footer.html' %}
+</body>
+</html>
